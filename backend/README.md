@@ -4,7 +4,7 @@
 
 Under construction
 
-## Steps for build and run the backend
+## Steps run the backend without Docker
 
 
 ### 1. Create and activate python environment
@@ -62,8 +62,20 @@ DATABASES = {
 python manage.py runserver
 ```
 
+## Steps run the backend with Docker
 
 
+### 1. Build docker image
 
+Inside backend folder:
 
+```
+docker build -t japeto/facturion_backend .
+
+```
+### 2. Run backend within Docker container
+
+```
+docker run --name facturion_backend -p 0.0.0.0:8000:8000 japeto/facturion_backend
+```
 

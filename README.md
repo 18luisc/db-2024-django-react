@@ -18,12 +18,16 @@ Additionally, includes Docker + Docker compose environtment for integration and 
 
 ### Executing program
 
+Use docker-compose for complete execution
 
+```
+docker-compose up -d
+```
 
 
 ## Authors
 
-@Japeto by Database Course
+@Japeto to Database Course
 
 
 

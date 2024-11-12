@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+  facturion_database:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    env_file:
+      - ./database/.env
+    container_name: facturion_db
+    ports:
+      - 5432:5432
+    networks:
+      - bst_network
+    volumes:
+      - ./database/volume:/var/lib/postgresql/data:rw
+  facturion_backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - ./backend/.env
+    container_name: facturion_backend
+    expose:
+      - 8000
+    ports:
+      - 8000:8000
+    networks:
+      - bst_network
+    depends_on:
+      - facturion_database
+    links:
+      - facturion_database:facturion_database
+
+networks:
+  bst_network:
+    driver: bridge
