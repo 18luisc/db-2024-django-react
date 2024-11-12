@@ -4,17 +4,20 @@
 
 Under construction
 
+## Steps for build and run the frontend
 
-## Get started
+### 1. Install dependencies
 
-1. Install dependencies
+Inside frontend folder, install dependencies
 
-   ```bash
-   npm install
-   ```
+```
+npm install
+```
 
-2. Start the app
+### 2. Run frontend app
 
-   ```bash
-    npx expo start
-   ```
+Inside frontend folder, run app
+
+```
+npm start
+```
