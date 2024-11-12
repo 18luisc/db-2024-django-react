@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'apps.clients',
-    'apps.manufacturer'
+    'apps.manufacturer',
+    'apps.product',
+    'apps.order',
+    'apps.orderitem'
 ]
 
 MIDDLEWARE = [
@@ -78,8 +81,12 @@ WSGI_APPLICATION = 'facturion.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pos_course',
+        'USER': 'jonmeister',
+        'PASSWORD': 'jonmeister',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

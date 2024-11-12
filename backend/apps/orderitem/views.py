@@ -1,16 +1,16 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
 
-from .models import Manufacturer
-from .serializer import ManufacturerSerializer
+from .models import OrderItem
+from .serializer import OrderItemSerializer
 
-class ListCreateManufacturer(generics.ListAPIView):
-  queryset = Manufacturer.objects.all()
-  serializer_class = ManufacturerSerializer
+class ListCreateOrderItem(generics.ListAPIView):
+  queryset = OrderItem.objects.all()
+  serializer_class = OrderItemSerializer
   
   def post(self, request, *args, **kwargs):
     data= request.data
-    serr = ManufacturerSerializer(data=data)
+    serr = OrderItemSerializer(data=data)
     if (serr.is_valid()):
       serr.save()
       return Response(serr.validated_data, status=status.HTTP_200_OK)  
