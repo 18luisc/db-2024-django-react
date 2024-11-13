@@ -62,3 +62,19 @@ DATABASES = {
 ```
 python manage.py runserver
 ```
+
+### 6. (Optional) Create migrations
+
+After of delete all migrations folders in each application into backend folder, run:
+
+```bash
+python manage.py makemigrations --merge
+```
+
+### 7. (Optional) Migrate table structure
+
+```bash
+python manage.py migrate
+```
+
+Go to `step 5`
