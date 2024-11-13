@@ -14,7 +14,7 @@ Additionally, includes Docker + Docker compose environtment for integration and 
 - Database: Postgres v14
 - Backend: Django +  Django Rest Framework (DRF) + Psycopg2
 - Frontend: ReactJS + Axios
-- Mobile: Expo + React Native + Expo
+- Mobile: Expo + React Native
 
 ### Executing program
 
@@ -23,7 +23,6 @@ Use docker-compose for complete execution
 ```
 docker-compose up -d
 ```
-
 
 ## Authors
 
