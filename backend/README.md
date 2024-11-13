@@ -45,15 +45,16 @@ Complete guide for running the backend without Docker, including explanations an
 
 From within the backend directory, build the Docker image for the backend application:
 
-```
+```bash
 docker build -t japeto/facturion_backend .
 
 ```
+
 ### 2. Run backend within Docker container
 
 To start a container from the backend image, use:
 
-```
+```bash
 docker run --name facturion_backend -p 0.0.0.0:8000:8000 japeto/facturion_backend
 ```
 
