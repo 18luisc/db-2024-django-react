@@ -31,6 +31,22 @@ services:
       - facturion_database
     links:
       - facturion_database:facturion_database
+  facturion_frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    env_file: 
+      - ./frontend/.env
+    container_name: facturion_frontend
+    restart: always
+    expose:
+      - "80"  # 3000
+    depends_on:
+      - facturion_backend
+    ports:
+      - "80:3000" # 3000:3000
+    networks:
+      - bst_network
 
 networks:
   bst_network:
