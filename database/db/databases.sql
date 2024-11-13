@@ -8,6 +8,3 @@
 -- Create database with course structure
 CREATE DATABASE pos_course;
 
--- Create database with homework structure
-CREATE DATABASE pos_homework;
-
