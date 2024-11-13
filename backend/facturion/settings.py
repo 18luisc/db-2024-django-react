@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'apps.clients',
-    'apps.manufacturer'
+    'apps.manufacturer',
+    'apps.product',
+    'apps.order',
+    'apps.orderitem'
 ]
 
 MIDDLEWARE = [
@@ -80,8 +83,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'pos_course',
-        'USER': 'postgres',
-        'PASSWORD': 'aP4sw0rd',
+        'USER': 'jonmeister',
+        'PASSWORD': 'jonmeister',
         'HOST': 'localhost',
         'PORT': '5432',
     }
