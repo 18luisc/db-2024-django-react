@@ -13,4 +13,4 @@ class Product(models.Model):
         db_table = "product"
         
     def __str__(self):
-        return self.name
+        return f"{self.product_id}: {self.name}, {self.price}"

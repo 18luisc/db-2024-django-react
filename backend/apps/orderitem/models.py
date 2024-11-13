@@ -2,7 +2,6 @@ from django.db import models
 from apps.product.models import Product
 from apps.order.models import Order
 
-
 class OrderItem(models.Model):
     order_item_id = models.IntegerField(primary_key=True)
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='order_items')

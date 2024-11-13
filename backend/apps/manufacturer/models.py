@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class Manufacturer(models.Model):
     manufacturer_id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100, null=False)
@@ -11,4 +10,4 @@ class Manufacturer(models.Model):
         db_table = "manufacturer"
         
     def __str__(self):
-        return self.name
+        return f"{self.name}, {self.contact_info}"
