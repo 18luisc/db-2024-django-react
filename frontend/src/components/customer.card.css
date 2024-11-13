@@ -1,0 +1,12 @@
+.customer-card{
+  flex-direction: row;
+  text-align: left;
+  transition: 0.3s;
+  border-radius: 2pt;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.customer-card:hover {
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+}

@@ -1,18 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { useNavigate} from "react-router-dom";
+import CustomerCard from '../../components/customer.card'
+
+import { fetchCustomer, createCustomer } from '../../api/customerApi';
 
 const Customer = () => {
   let navigate = useNavigate();
-  // State for customer list and form data
+  
   const [customers, setCustomers] = useState([]);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
 
-  // Handle form submission
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    const getCustomers = async () => {
+      const data = await fetchCustomer();
+      setCustomers(data);
+    };
+    getCustomers();
+  }, []);
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (name && email && phone && address) {
       // Add the new customer to the list
@@ -23,8 +33,10 @@ const Customer = () => {
         address,
         created_at: new Date().toISOString(),
       };
-      setCustomers([...customers, newCustomer]);
-      // Clear the form fields
+      await createCustomer(newCustomer);
+      const updatedCustomer = await fetchCustomer();
+      setCustomers(updatedCustomer);
+      // setCustomers([...customers, newCustomer]);
       setName('');
       setEmail('');
       setPhone('');
@@ -85,13 +97,10 @@ const Customer = () => {
         <div className="list-container">
           <ul>
             {customers.map((customer, index) => (
-              <li key={index}>
-                <strong>{customer.name}</strong><br />
-                Email: {customer.email}<br />
-                Phone: {customer.phone}<br />
-                Address: {customer.address}<br />
-                Created At: {new Date(customer.created_at).toLocaleString()}
-              </li>
+              <CustomerCard 
+                key={index}
+                customer={customer}
+              />
             ))}
           </ul>
         </div>
