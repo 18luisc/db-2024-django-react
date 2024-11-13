@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './styles.css';
+import { useNavigate} from "react-router-dom";
 
 const Customer = () => {
+  let navigate = useNavigate();
   // State for customer list and form data
   const [customers, setCustomers] = useState([]);
   const [name, setName] = useState('');
@@ -38,7 +40,7 @@ const Customer = () => {
         
         <div className="form-container">
         <form onSubmit={handleSubmit} className="customer-form">
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="name">Nombre:</label>
             <input
               type="text"
               id="name"
@@ -47,7 +49,7 @@ const Customer = () => {
               required
             />
             
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email">Correo:</label>
             <input
               type="email"
               id="email"
@@ -56,7 +58,7 @@ const Customer = () => {
               required
             />
             
-            <label htmlFor="phone">Phone:</label>
+            <label htmlFor="phone">Telefono:</label>
             <input
               type="tel"
               id="phone"
@@ -65,7 +67,7 @@ const Customer = () => {
               required
             />
             
-            <label htmlFor="address">Address:</label>
+            <label htmlFor="address">Dirrección:</label>
             <input
               id="address"
               value={address}
@@ -73,7 +75,10 @@ const Customer = () => {
               required
             />
             
-            <button type="submit">Add Customer</button>
+            <div style={{flexDirection: 'row'}}>
+              <button onClick={() => navigate(-1)}> Regresar </button> 
+              <button type="submit">Agregar + </button>
+            </div>
           </form>
         </div>
 
